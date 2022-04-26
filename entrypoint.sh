@@ -10,8 +10,8 @@ function parseInputs(){
 	fi
 }
 
-function installTypescript(){
-	npm install typescript
+function installDependencies(){
+	yarn
 }
 
 function installAwsCdk(){
@@ -98,9 +98,9 @@ ${output}
 
 function main(){
 	parseInputs
-	cd ${GITHUB_WORKSPACE}/${INPUT_WORKING_DIR}
-	installTypescript
+	installDependencies
 	installAwsCdk
+	cd ${GITHUB_WORKSPACE}/${INPUT_WORKING_DIR}
 	installPipRequirements
 	runCdk ${INPUT_CDK_ARGS}
 }
