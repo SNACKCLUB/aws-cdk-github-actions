@@ -10,10 +10,6 @@ function parseInputs(){
 	fi
 }
 
-function installDependencies(){
-	yarn
-}
-
 function installAwsCdk(){
 	echo "Install aws-cdk ${INPUT_CDK_VERSION}"
 	if [ "${INPUT_CDK_VERSION}" == "latest" ]; then
@@ -98,7 +94,6 @@ ${output}
 
 function main(){
 	parseInputs
-	installDependencies
 	installAwsCdk
 	cd ${GITHUB_WORKSPACE}/${INPUT_WORKING_DIR}
 	installPipRequirements
